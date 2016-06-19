@@ -3,3 +3,4 @@ worker:    bundle exec sidekiq -e $RAILS_ENV
 postgres:  postgres -D /usr/local/var/postgres
 redis:     redis-server
 log:       tail -f log/development.log
+guard:     bundle exec guard -i
