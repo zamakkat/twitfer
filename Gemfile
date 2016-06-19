@@ -19,6 +19,7 @@ gem 'turbolinks'
 gem 'redis'
 gem 'hiredis'
 gem 'sidekiq'
+gem 'sinatra', require: false
 
 # App specific
 gem 'twitter'
