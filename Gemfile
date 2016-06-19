@@ -31,6 +31,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'dotenv-rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do
