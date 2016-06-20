@@ -6,7 +6,7 @@ class Customer < ActiveRecord::Base
   private
 
     def set_code
-      self.code = generate_code
+      self.code = generate_code unless code
     end
 
     def generate_code
