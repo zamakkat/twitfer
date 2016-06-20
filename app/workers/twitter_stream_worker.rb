@@ -11,11 +11,24 @@ class TwitterStreamWorker
       config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
     end
 
-    client.filter(track: 'twitfer production') do |object|
+    client.filter(track: 'twitfer production code') do |object|
       if object.is_a?(Twitter::Tweet)
-        puts object.id
-        puts object.text
-        puts object.uri
+        tweet = Tweet.new(
+          tweet_id: object.id,
+          text: object.text,
+          expanded_url: object.uris.first.expanded_url,
+          twitter_user_id: object.user.id,
+          twitter_user_handle: object.user.screen_name,
+          created_at: object.created_at
+        )
+        customer_code = tweet.find_customer_code
+        if customer_code
+          customer = Customer.find_or_create_by(code: customer_code)
+          tweet.customer = customer
+          customer.twitter_user_id = tweet.twitter_user_id if tweet.twitter_user_id
+          customer.twitter_user_handle = tweet.twitter_user_handle if tweet.twitter_user_handle
+          customer.save
+        end
       end
     end
   end

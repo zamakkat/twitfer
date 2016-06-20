@@ -1,5 +1,5 @@
 class Customer < ActiveRecord::Base
-  has_many :tweets, dependent: :destroy
+  has_many :tweets, dependent: :destroy, autosave: true
 
   before_create :set_code
 
