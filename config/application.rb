@@ -24,5 +24,9 @@ module Twitfer
     config.active_record.raise_in_transactional_callbacks = true
 
     config.active_job.queue_adapter = :sidekiq
+
+    config.after_initialize do
+      TwitterStreamWorker.perform_async
+    end
   end
 end

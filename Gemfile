@@ -19,6 +19,8 @@ gem 'turbolinks'
 gem 'redis'
 gem 'hiredis'
 gem 'sidekiq'
+gem 'sidekiq-unique-jobs'
+gem 'sinatra', require: false
 
 # App specific
 gem 'twitter'
