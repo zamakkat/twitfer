@@ -1,12 +1,12 @@
 class Customer < ActiveRecord::Base
-  has_many :tweets, dependent: :destroy
+  has_many :tweets, dependent: :destroy, autosave: true
 
   before_create :set_code
 
   private
 
     def set_code
-      self.code = generate_code
+      self.code = generate_code unless code
     end
 
     def generate_code
