@@ -1,0 +1,16 @@
+h1.page-header Customers
+
+.panel.panel-default
+  .panel-body
+    table#customers
+      thead
+        tr
+          th ID
+          th Twitter handle
+          th Ref. code
+      tbody
+        - @customers.each do |customer|
+          tr
+            td= customer.id
+            / td= customer.twitter_user_handle
+            td= customer.code
