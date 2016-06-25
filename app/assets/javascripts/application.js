@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require sb-admin-2
 //= require jquery.dataTables
+//= require dataTables.bootstrap
 //= require turbolinks
 //= require twitfer
 //= require_tree ./application
