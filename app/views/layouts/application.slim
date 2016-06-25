@@ -1,0 +1,40 @@
+doctype 5
+html lang='en'
+  head
+    title Dashboard | Twitfer
+
+    meta charset='utf-8'
+    meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1'
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body
+    #wrapper
+      nav.navbar.navbar-default.navbar-static-top role='navigation' style='margin-bottom: 0'
+        .navbar-header
+          button.navbar-toggle type='button' data-toggle='collapse' data-target='.navbar-collapse'
+            span.sr-only
+              | Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href='/' Twitfer
+
+        .navbar-default.sidebar role='navigation'
+          .sidebar-nav.navbar-collapse
+            ul#side-menu.nav
+              li
+                a href='/'
+                  i.fa.fa-dashboard.fa-fw
+                  |  Dashboard
+              li
+                a href='#'
+                  i.fa.fa-user.fa-fw
+                  |  Customers
+
+      #page-wrapper
+        .container-fluid
+          = yield
