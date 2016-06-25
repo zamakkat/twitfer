@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require sb-admin-2
-//= require jquery.dataTables.min
+//= require jquery.dataTables
 //= require turbolinks
 //= require twitfer
 //= require_tree ./application
