@@ -14,15 +14,3 @@
  *= require ./shared/base
  *= require_tree ./application
  */
-
-html, body {
-  height: 100%;
-}
-
-#wrapper {
-  height: 100%;
-
-  #page-wrapper {
-    min-height: calc(100% - 51px);
-  }
-}
