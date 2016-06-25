@@ -12,5 +12,5 @@ h1.page-header Customers
         - @customers.each do |customer|
           tr
             td= customer.id
-            / td= customer.twitter_user_handle
+            td= customer.tweets.last&.twitter_user_handle
             td= customer.code
