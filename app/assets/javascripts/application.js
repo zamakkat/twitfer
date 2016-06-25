@@ -16,4 +16,5 @@
 //= require sb-admin-2
 //= require jquery.dataTables.min
 //= require turbolinks
-//= require_tree .
+//= require twitfer
+//= require_tree ./application

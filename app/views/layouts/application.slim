@@ -12,7 +12,7 @@ html lang='en'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-  body
+  body class=page_class
     #wrapper
       nav.navbar.navbar-default.navbar-static-top role='navigation' style='margin-bottom: 0'
         .navbar-header
@@ -39,3 +39,5 @@ html lang='en'
       #page-wrapper
         .container-fluid
           = yield
+
+    = javascript_initialization
