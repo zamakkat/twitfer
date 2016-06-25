@@ -1,6 +1,6 @@
 class TwitterStreamWorker
   include Sidekiq::Worker
-  sidekiq_options unique: :while_executing
+  sidekiq_options unique: :until_and_while_executing
 
   def perform
     fail 'Twitter environment variables missing' if ENV['TWITTER_CONSUMER_KEY'].blank? || ENV['TWITTER_CONSUMER_SECRET'].blank? || ENV['TWITTER_ACCESS_TOKEN'].blank? || ENV['TWITTER_ACCESS_TOKEN_SECRET'].blank?
@@ -13,6 +13,8 @@ class TwitterStreamWorker
 
     client.filter(track: 'twitfer production code') do |object|
       if object.is_a?(Twitter::Tweet)
+        # Make sure that the tweet has not been indexed
+        return if Tweet.find_by(tweet_id: object.id)
         tweet = Tweet.new(
           tweet_id: object.id,
           text: object.text,
@@ -25,11 +27,13 @@ class TwitterStreamWorker
         if customer_code
           customer = Customer.find_or_create_by(code: customer_code)
           tweet.customer = customer
-          customer.twitter_user_id = tweet.twitter_user_id if tweet.twitter_user_id
-          customer.twitter_user_handle = tweet.twitter_user_handle if tweet.twitter_user_handle
-          customer.save
+          tweet.save
         end
       end
     end
+  rescue Twitter::Error::TooManyRequests => error
+    Rails.logger.warn "Twitter rate limited. Time to retry: #{error.rate_limit.reset_in + 1}"
+    sleep error.rate_limit.reset_in + 1
+    retry
   end
 end
