@@ -43,6 +43,7 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'foreman'
+  gem 'quiet_assets'
 
   # Guards
   gem 'guard-rspec', require: false
