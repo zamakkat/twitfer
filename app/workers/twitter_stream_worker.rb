@@ -32,8 +32,8 @@ class TwitterStreamWorker
       end
     end
   rescue Twitter::Error::TooManyRequests => error
-    Rails.logger.warn "Twitter rate limited. Time to retry: #{error.rate_limit.reset_in + 1}"
-    sleep error.rate_limit.reset_in + 1
+    Rails.logger.warn "Twitter rate limited. Time to retry: #{(error.rate_limit.reset_in || 0) + 1}"
+    sleep (error.rate_limit.reset_in || 0) + 1
     retry
   end
 end
