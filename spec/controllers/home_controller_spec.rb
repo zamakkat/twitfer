@@ -17,10 +17,14 @@ RSpec.describe HomeController, type: :controller do
       get :customers
     end
 
-    before { do_request }
+    before do
+      create_list(:customer, 3)
+      create_list(:tweet, 5)
+      do_request
+    end
 
-    it { expect(assigns(:customers)).to eq(create_list(:customer, 3)) }
-    it { expect(assigns(:tweets)).to eq(create_list(:tweet, 5)) }
+    it { expect(assigns(:customers).first).to be_a(Customer) }
+    it { expect(assigns(:tweets).first).to be_a(Tweet) }
     it { is_expected.to render_template('home/customers') }
     it { expect(response).to be_success }
   end
