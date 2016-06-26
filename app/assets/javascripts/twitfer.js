@@ -1,0 +1,3 @@
+window.Twitfer = {
+  init: function() {}
+}

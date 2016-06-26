@@ -1,0 +1,35 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+@import 'sb-admin-2';
+@import 'dataTables.bootstrap';
+@import 'morris';
+
+// Bootstrap overrides
+.page-header {
+  margin: 20px 0 10px;
+}
+
+body {
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+}
+
+// Layout
+html, body {
+  height: 100%;
+}
+
+#wrapper {
+  height: 100%;
+
+  #page-wrapper {
+    min-height: calc(100% - 51px);
+  }
+}
+
+// Shared styles
+table {
+  width: 100%;
+}

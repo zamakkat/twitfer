@@ -9,11 +9,14 @@ gem 'pg', '~> 0.15'
 
 # Front-end
 gem 'slim-rails'
-gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass'
+gem 'sass-rails'
+gem 'font-awesome-sass'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'rails_utils'
 
 # Jobs
 gem 'redis'
@@ -34,11 +37,13 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'foreman'
+  gem 'quiet_assets'
 
   # Guards
   gem 'guard-rspec', require: false

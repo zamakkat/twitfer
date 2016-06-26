@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Customer do
+RSpec.describe Customer do
   context 'associations' do
     it { is_expected.to have_many(:tweets).dependent(:destroy) }
   end
