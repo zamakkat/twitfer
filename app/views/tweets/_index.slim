@@ -1,0 +1,18 @@
+.panel.panel-default
+  .panel-body
+    table#tweets
+      thead
+        tr
+          th ID
+          th Tweet id
+          th Twitter user id
+          th Twitter user handle
+          th Text
+      tbody
+        - tweets.each do |tweet|
+          tr
+            td= tweet.id
+            td= tweet.tweet_id
+            td= tweet.twitter_user_id
+            td= tweet.twitter_user_handle
+            td= tweet.text
