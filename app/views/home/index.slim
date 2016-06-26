@@ -28,9 +28,11 @@ h1.page-header Dashboard
             .huge= @tweets_count
             div Tweets
 
-      = link_to '#'
+      = link_to tweets_path do
         .panel-footer
           span.pull-left View Details
           span.pull-right
             i.fa.fa-arrow-circle-right
           .clearfix
+
+#dashboard-chart data-points=(@plot_data)
