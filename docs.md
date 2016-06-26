@@ -19,7 +19,7 @@ The front end is just basic Rails views with Slim as the templating language, Bo
 - `raphael.js`: dependency for `morris.js`
 
 ## Development and Build pipeline
-To make a change to the code-base, just issue a pull request to the `master` branch. An optional `staging` environment with Heroku's review apps feature can be set up at later stages.
+To make a change to the code-base, just issue a pull request to the `master` branch. An optional `staging` environment with Heroku's review apps feature can be set up at later stages. TravisCI is used for continuous integration to run all specs to make sure new changes don't break anything.
 
 The app is currently deployed to Heroku at `https://twitfer-production.herokuapp.com/`. There is currently no auto-deploy so the `master` branch is manually deployed on need.
 
