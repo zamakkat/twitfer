@@ -8,6 +8,7 @@
           th Twitter user id
           th Twitter user handle
           th Text
+          th Created at
       tbody
         - tweets.each do |tweet|
           tr
@@ -16,3 +17,4 @@
             td= tweet.twitter_user_id
             td= tweet.twitter_user_handle
             td= tweet.text
+            td= time_tag tweet.created_at

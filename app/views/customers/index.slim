@@ -8,9 +8,11 @@ h1.page-header Customers
           th ID
           th Twitter handle
           th Ref. code
+          th Last tweet
       tbody
         - @customers.each do |customer|
           tr
             td= link_to customer.id, customer_path(customer)
             td= customer.tweets.last&.twitter_user_handle
             td= customer.code
+            td= time_tag customer.tweets.last&.created_at
