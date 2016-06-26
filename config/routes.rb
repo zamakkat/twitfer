@@ -3,7 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   root 'home#index'
 
-  get '/customers', to: 'home#customers'
+  resources :customers, only: [:index, :show]
 
   mount Sidekiq::Web => '/sidekiq'
 end
