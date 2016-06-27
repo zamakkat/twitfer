@@ -14,7 +14,7 @@ Sidekiq.configure_server do |config|
   sidekiq_calculations = SidekiqCalculations.new
   sidekiq_calculations.raise_error_for_env!
 
-  config.options[:concurrency] = sidekiq_calculations.server_concurrency_size
+  config.options[:concurrency] = ENV['WORKER_CONCURRENCY'] || sidekiq_calculations.server_concurrency_size
   config.redis = {
     url: ENV['REDISCLOUD_URL']
   }
